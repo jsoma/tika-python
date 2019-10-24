@@ -126,7 +126,7 @@ try:
         return build_header(os.path.basename(fn)).decode('ascii')
 except ImportError:
     def make_content_disposition_header(fn):
-        return 'attachment; filename=%s' % os.path.basename(fn)
+        return 'attachment; filename=%s' % os.path.basename(fn).encode('utf8')
 
 if sys.version_info[0] < 3:
     open = codecs.open
